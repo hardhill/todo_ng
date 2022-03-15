@@ -9,14 +9,14 @@ import {Category} from "../../model/Category";
 })
 export class CategoriesComponent implements OnInit {
   categories?:Category[]
+
   constructor(private dataHandler:DataHandlerService) { }
 
   ngOnInit(): void {
     this.categories = this.dataHandler.getCategories()
-    console.log(this.categories)
   }
 
   showTasksByCategory(category: Category) {
-      this.dataHandler.getTasksByCategory(category)
+      this.dataHandler.fillTasksByCategory(category)
   }
 }
