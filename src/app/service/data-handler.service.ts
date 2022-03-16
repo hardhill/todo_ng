@@ -9,7 +9,7 @@ import {BehaviorSubject, Subject} from "rxjs";
 })
 export class DataHandlerService {
 
-  taskSubject:BehaviorSubject<Task[]> = new BehaviorSubject<Task[]>(TestData.tasks)
+  tasksSubject:BehaviorSubject<Task[]> = new BehaviorSubject<Task[]>(TestData.tasks)
   categorySubject = new BehaviorSubject<Category[]>(TestData.categories)
 
   constructor() { }
@@ -19,11 +19,11 @@ export class DataHandlerService {
   }
 
   fillTasks(){
-    this.taskSubject.next(TestData.tasks)
+    this.tasksSubject.next(TestData.tasks)
   }
 
   fillTasksByCategory(category:Category){
     const tasks = TestData.tasks.filter(task=>task.category === category)
-    this.taskSubject.next(tasks)
+    this.tasksSubject.next(tasks)
   }
 }
